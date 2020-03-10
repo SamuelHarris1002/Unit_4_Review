@@ -5,8 +5,8 @@
    Tutorial 11
    Review Assignment
 
-   Author: 
-   Date:   
+   Author: Samuel Harris
+   Date: 3/10/20  
 
    Global Variables
    ================
@@ -46,13 +46,48 @@
       the numbers, blocks, and rating parameters.
 	
 */
+var allCells;
 
+window.onload = startup();
 
+function startup() {
+   document.getElementById("puzzleTitle").innerHTML = "Puzzle 1";
+   document.getElementById("puzzle").innerText = drawHitori(hitori1Numbers, hitori1Blocks, hitori1Rating);
+}
 
+var puzzleButtons = document.getElementById("puzzles");
+loop:
+for(var i; i<puzzleButtons.length; i++){
+   puzzleButtons[i].onclick = switchPuzzle;
+}
+setupPuzzle();
 
+document.addEventListener("click", findErrors);
+document.addEventListener("click", showSolution);
 
+switchPuzzle(e){
+   if(confirm("You will lose all of your work on the ouzzle. Continue?")){
+      var puzzleID = e.target.id;
+      var puzzleTitle = e.target.value;
+      document.getElementById("puzzleTitle").innerHTML = puzzleTitle;
+      switch(puzzleID){
+         case "puzzle 1":
+            document.getElementById("puzzle").innerHTML = drawHitori(hitori1Numbers, hitori1Blocks, hitori1Rating);
+            break;
+         case "puzzle 2":
+            document.getElementById("puzzle").innerHTML = drawHitori(hitori2Numbers, hitori2Blocks, hitori2Rating);
+            break;
+         case "puzzle 3":
+            document.getElementById("puzzle").innerHTML = drawHitori(hitori3Numbers, hitori3Blocks, hitori3Rating);
+            break;
+      }
+      setupPuzzle();
+   }
+}
 
-
+setupPuzzle(){
+   querySelectorAll()
+}
 
 
 
